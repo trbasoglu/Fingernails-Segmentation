@@ -26,7 +26,7 @@ def mean_iou(y_true, y_pred):
 
 class fingernailseg:
     
-    epochs = 50
+    epochs = 200
     batch_size = 4
     val_split = .1
     sz = (192, 160)
@@ -116,10 +116,10 @@ class fingernailseg:
         self.model.compile(optimizer = Adam(), loss = 'binary_crossentropy', metrics = [mean_iou])
         
     def build_callbacks(self):
-        checkpointer = ModelCheckpoint(filepath='unet.h5', verbose=0, save_best_only=True, save_weights_only=True)
+        checkpointer = ModelCheckpoint(filepath='unet.h5', verbose=0, save_best_only=True, save_weights_only=False)
         stop_train = EarlyStopping(monitor='val_loss', patience=10, verbose=1)
         reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.8,
-                    patience=3, min_lr=0.00001)
+                    patience=10, min_lr=0.00001)
         callbacks = [checkpointer, reduce_lr, stop_train, PlotLearning()]
         return callbacks
     
