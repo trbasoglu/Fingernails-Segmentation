@@ -31,7 +31,8 @@ class fingernailseg:
     val_split = .25
     sz = (192, 160)
     
-    def __init__(self, dataset):
+    def __init__(self, dataset, _sz):
+        self.sz = _sz
         if len(dataset):
             tar = tarfile.open(dataset)
             tar.extractall()
