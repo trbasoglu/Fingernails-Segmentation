@@ -152,7 +152,7 @@ class fingernailseg:
 # inheritance for training process plot 
 class PlotLearning(keras.callbacks.Callback, fingernailseg):
     def __init__(self):
-        fingernailseg.__init__(self, '', None)
+        fingernailseg.__init__(self, '')
     def on_train_begin(self, logs={}):
         self.i = 0
         self.x = []
