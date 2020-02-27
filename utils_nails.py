@@ -29,10 +29,9 @@ class fingernailseg:
     epochs = 200
     batch_size = 4
     val_split = .25
-    sz = (192, 160)
+    sz = (256, 256)
     
-    def __init__(self, dataset, _sz):
-        self.sz = _sz
+    def __init__(self, dataset)
         if len(dataset):
             tar = tarfile.open(dataset)
             tar.extractall()
@@ -153,7 +152,7 @@ class fingernailseg:
 # inheritance for training process plot 
 class PlotLearning(keras.callbacks.Callback, fingernailseg):
     def __init__(self):
-        fingernailseg.__init__(self, '')
+        fingernailseg.__init__(self, '', None)
     def on_train_begin(self, logs={}):
         self.i = 0
         self.x = []
