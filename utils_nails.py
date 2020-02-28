@@ -29,7 +29,7 @@ class fingernailseg:
     epochs = 200
     batch_size = 1
     val_split = .1
-    sz = (256, 256)
+    sz = (192, 160)
     
     def __init__(self, dataset):
         if len(dataset):
