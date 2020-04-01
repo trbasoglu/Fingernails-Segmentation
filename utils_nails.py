@@ -11,9 +11,9 @@ from keras.optimizers import Adam, SGD
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
 from keras import backend as K
 from keras.utils import plot_model
-import tensorflow as tf
 from IPython.display import clear_output
-
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 def mean_iou(y_true, y_pred):
     yt0 = y_true[:,:,:,0]
